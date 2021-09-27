@@ -13,12 +13,20 @@ git_repository(
 )
 
 # We still require the pybind library.
+# new_git_repository(
+#   name = "pybind11",
+#   build_file = "@pybind11_bazel//:pybind11.BUILD",
+#   remote = "https://github.com/pybind/pybind11.git",
+#   tag = "v2.7.1",
+# )
 new_git_repository(
-  name = "pybind11",
-  build_file = "@pybind11_bazel//:pybind11.BUILD",
-  remote = "https://github.com/pybind/pybind11.git",
-  tag = "v2.7.1",
+    name = "pybind11",
+    build_file = "@pybind11_bazel//:pybind11.BUILD",
+    remote = "https://github.com/pybind/pybind11.git",
+    commit = "6bce3bd72e8d0838cdb1586abd6d3cfb9c598a8f",
 )
+
+
 
 load("@pybind11_bazel//:python_configure.bzl", "python_configure")
 python_configure(name = "local_config_python")
